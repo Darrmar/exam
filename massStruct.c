@@ -1,24 +1,37 @@
 #include <stdio.h>
 #include <stdlib.h>
-#include <malloc.h>
 
-#include <string.h>
-#include <locale.h>
-
-typedef struct data {
+typedef struct dataf {
   int day;
   int month;
   int year;
-};
+} data;
 
-int main()
-{
-    struct data myData[] = {17, 12, 2020, 16, 12, 2020, 15, 12, 2020};
-    int n = sizeof(myData)/sizeof(myData[0]);
-    for(int i=0; i<n; i++)
-    {
-        printf("Day:%i \t Month: %i \t Yer:%i \n", myData[i].day, myData[i].month, myData[i].year);
+int main() {
+    int i, n;
+    printf("number of dates: ");
+    scanf("%d", &n);
+    data* myData = (data*) calloc(n, sizeof(data));
+
+    for (i = 0; i < n; i++){
+        printf("Day:");
+        scanf("%d", &myData[i].day);
+
+        printf("Month:");
+        scanf("%d", &myData[i].month);
+
+        printf("Year:");
+        scanf("%d", &myData[i].year);
     }
+    for (i = 0; i<n; i++){
+        printf("%d", myData[i].day);
+        printf(".");
+        printf("%d", myData[i].month);
+        printf(".");
+        printf("%d", myData[i].year);
+        printf("\n");
+    }
+    free(myData);
+
     return 0;
 }
-
