@@ -7,7 +7,7 @@ using namespace std;
 int main()
 {
 	ofstream input("input.txt");
-	input << "A";
+	input << "Change\n\n\n\n\nChange";
 	input.close();
 	const int size = 100;
 	char ina[size] = "";
@@ -18,8 +18,9 @@ int main()
 	cout << "new symbol " << endl;
 	cin >> inb;
 
-	input.open("input.txt", ios::in | ios::out);
+	input.open("input.txt", ios::out | ios::trunc);
 	input << inb;
+	input.close();
 
 	ofstream output("output.txt");
 	output << ina;
